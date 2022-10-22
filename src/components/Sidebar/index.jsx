@@ -50,6 +50,14 @@ const Sidebar = () => {
         </NavLink>
         <NavLink
           activeclassname="active"
+          className="skills-link"
+          to="/skills"
+          onClick={() => setShowNav(false)}
+        >
+          <FontAwesomeIcon icon={faCode} color="#4d4d4e" />
+        </NavLink>
+        <NavLink
+          activeclassname="active"
           className="portfolio-link"
           to="/portfolio"
           onClick={() => setShowNav(false)}
