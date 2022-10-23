@@ -18,15 +18,21 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault()
-
+    console.log(form.current)
     emailjs
-      .sendForm('gmail', 'template_YeJhZkgb', form.current, 'your-token')
+      .sendForm(
+        'service_64maa7a',
+        'template_yb7h08g',
+        form.current,
+        '3d-mvyAHJMwcqJXng'
+      )
       .then(
         () => {
           alert('Message successfully sent!')
           window.location.reload(false)
         },
-        () => {
+        (e) => {
+          console.log(e)
           alert('Failed to send the message, please try again')
         }
       )
@@ -52,13 +58,20 @@ const Contact = () => {
             <form ref={form} onSubmit={sendEmail}>
               <ul>
                 <li className="half">
-                  <input placeholder="Name" type="text" name="name" required />
+                  <input
+                    placeholder="Name"
+                    id="name"
+                    type="text"
+                    name="name"
+                    required
+                  />
                 </li>
                 <li className="half">
                   <input
                     placeholder="Email"
                     type="email"
                     name="email"
+                    id="email"
                     required
                   />
                 </li>
@@ -67,6 +80,7 @@ const Contact = () => {
                     placeholder="Subject"
                     type="text"
                     name="subject"
+                    id="subject"
                     required
                   />
                 </li>
@@ -74,6 +88,7 @@ const Contact = () => {
                   <textarea
                     placeholder="Message"
                     name="message"
+                    id="message"
                     required
                   ></textarea>
                 </li>
@@ -95,12 +110,12 @@ const Contact = () => {
           <span>freelancerslobodan@gmail.com</span>
         </div>
         <div className="map-wrap">
-          <MapContainer center={[44.96366, 19.61045]} zoom={13}>
+          {/* <MapContainer center={[44.96366, 19.61045]} zoom={13}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Marker position={[44.96366, 19.61045]}>
               <Popup>Sloba lives here, come over for a cup of coffee :)</Popup>
             </Marker>
-          </MapContainer>
+          </MapContainer> */}
         </div>
       </div>
       <Loader type="pacman" />
